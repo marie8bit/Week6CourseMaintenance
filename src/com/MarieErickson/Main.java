@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 	// Add course data
         ArrayList<ITECCourse> courseMaster = new ArrayList<>();
-        ITECCourse Java = new ITECCourse("Java", 2545, 24, "T3050");
+        ITECCourse Java = new ITECCourse("Java", 2545, 24);
         Java.addStudent("Marie");
         Java.addStudent("Ben");
         Java.addStudent("Pat");
