@@ -16,7 +16,8 @@ public class ITECCourse
     private String classroom;
     private int code;
     private ArrayList<String> students;
-    public ArrayList<ITECCourse> courseMaster = new ArrayList<>();
+
+
     //get set methods for class properties
     public int getMaxStudents(){return maxStudents;}
     public  void setMaxStudents(int maxStudents){this.maxStudents = maxStudents;}
@@ -33,7 +34,7 @@ public class ITECCourse
         this.students = new ArrayList<String>();
         this.maxStudents = courseMaxStudents;
         this.classroom = classroom;
-        courseMaster.add(this);
+
     }
     public void addStudent(String studentName){
         if(this.students.size()<maxStudents)
@@ -46,7 +47,7 @@ public class ITECCourse
         }
     }
     public void writeCourseInfo(){
-        for(Object ob : courseMaster) {
+
             System.out.println("Course Name: " + this.name);
             System.out.println("Course Code: " + this.code);
             System.out.println("Course Classroom: " + this.classroom);
@@ -56,12 +57,16 @@ public class ITECCourse
             }
             System.out.println("There are " + getNumberOfStudents() +
                     " students enrolled");
-            System.out.println("The max number of student for this course is "
+            System.out.println("The max number of students for this course is "
                     + this.maxStudents);
-        }
+
     }
     int getNumberOfStudents(){
         return this.students.size();
     }
 
+    public int getFreeSeats(){
+        int freeSeats = this.getMaxStudents()-this.getNumberOfStudents();
+        return freeSeats;
+    }
 }
