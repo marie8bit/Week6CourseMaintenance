@@ -43,6 +43,10 @@ public class Main {
         {
             System.out.println(ob.getName()+ " has "+ob.getFreeSeats()+ " free spaces");
         }
+        Java.writeCourseInfo();
+        CSharp.writeCourseInfo();
+        SQL.writeCourseInfo();
+        ITConcepts.writeCourseInfo();
 
     }
 }
