@@ -1,6 +1,7 @@
 package com.MarieErickson;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by yd7581ku on 9/27/2016.
@@ -10,39 +11,21 @@ public class ITECCourse
 
 
 
+    private int maxStudents;
+    private String name;
+    private String classroom;
     private int code;
     private ArrayList<String> students;
-    private int maxStudents;
-    private String classroom;
-    public int getMaxStudents(){
-        return maxStudents;
-    }
-    public  void setMaxStudents(int maxStudents){
-        this.maxStudents = maxStudents;
-    }
-    public String getName()
-    {
-        return name;
-    }
-    public void setClassroom(String classroom) {this.classroom = classroom;}
+    public ArrayList<ITECCourse> courseMaster = new ArrayList<>();
+    //get set methods for class properties
+    public int getMaxStudents(){return maxStudents;}
+    public  void setMaxStudents(int maxStudents){this.maxStudents = maxStudents;}
+    public String getName(){return name;}
+    public void setName(String name){this.name = name;}
     public String getClassroom() {return classroom;}
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    private String name;
-
-    public int getCode()
-    {
-        return code;
-    }
-
-    public void setCode(int code)
-    {
-        this.code = code;
-    }
+    public void setClassroom(String classroom) {this.classroom = classroom;}
+    public int getCode(){return code;}
+    public void setCode(int code){this.code = code;}
     //constructor
     public ITECCourse(String courseName, int courseCode, int courseMaxStudents, String classroom){
         this.name = courseName;
@@ -50,12 +33,12 @@ public class ITECCourse
         this.students = new ArrayList<String>();
         this.maxStudents = courseMaxStudents;
         this.classroom = classroom;
-
+        courseMaster.add(this);
     }
     public void addStudent(String studentName){
-        if(students.size()<maxStudents)
+        if(this.students.size()<maxStudents)
         {
-            students.add(studentName);
+            this.students.add(studentName);
         }
         else{
             System.out.println(this.name+" is full");
@@ -63,18 +46,19 @@ public class ITECCourse
         }
     }
     public void writeCourseInfo(){
-        System.out.println("Course Name: "+ this.name);
-        System.out.println("Course Code: "+ this.code);
-        System.out.println("Course Classroom: "+ this.classroom);
-        System.out.println("Students enrolled:");
-        for (String student: this.students){
-            System.out.println(student);
+        for(Object ob : courseMaster) {
+            System.out.println("Course Name: " + this.name);
+            System.out.println("Course Code: " + this.code);
+            System.out.println("Course Classroom: " + this.classroom);
+            System.out.println("Students enrolled:");
+            for (String student : this.students) {
+                System.out.println(student);
+            }
+            System.out.println("There are " + getNumberOfStudents() +
+                    " students enrolled");
+            System.out.println("The max number of student for this course is "
+                    + this.maxStudents);
         }
-        System.out.println("There are "+getNumberOfStudents()+
-                " students enrolled");
-        System.out.println("The max number of student for this course is "
-                +this.maxStudents);
-
     }
     int getNumberOfStudents(){
         return this.students.size();

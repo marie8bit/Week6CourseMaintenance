@@ -3,7 +3,7 @@ package com.MarieErickson;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	// Add course data
         ITECCourse Java = new ITECCourse("Java", 2545, 24, "T3050");
         Java.addStudent("Marie");
         Java.addStudent("Ben");
@@ -26,11 +26,16 @@ public class Main {
         SQL.addStudent("Boris");
         SQL.addStudent("Momo");
         SQL.addStudent("Sonja");
-        SQL.writeCourseInfo();
+
         ITECCourse ITConcepts = new ITECCourse("Info Tech Concepts", 1100, 30, "T3050");
         ITConcepts.addStudent("Max");
         ITConcepts.addStudent("Nancy");
         ITConcepts.addStudent("Orson");
-        Java.writeCourseInfo();CSharp.writeCourseInfo();ITConcepts.writeCourseInfo();
+        //print out user friendly information
+//        Java.writeCourseInfo();
+//        CSharp.writeCourseInfo();
+//        SQL.writeCourseInfo();
+//        ITConcepts.writeCourseInfo();
+
     }
 }
